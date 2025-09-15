@@ -130,4 +130,10 @@ Folder: [Amorphous carbon simulation](./n_Amorphous_carbon_simulation)
 
 Run the codes inside the folder `Main_1_AET_RESIRE_Probe.m`,  `Main_2_polynomial_tracing_iteration.m`,  `Main_3_Match_Atom_With_Position.m`, and  `Main_4_Atom_Position_refinement.m` to obatin the traced atom positions for the amorphous carbon multislice simulation.
 
+### o. Resoluction Calculation
+
+Folder: []
+
+
+
 
