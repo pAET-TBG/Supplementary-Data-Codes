@@ -132,8 +132,9 @@ Run the codes inside the folder `Main_1_AET_RESIRE_Probe.m`,  `Main_2_polynomial
 
 ### o. Resoluction Calculation
 
-Folder: []
+Folder: [Calculate_resolution](./o_Calculate_resolution)
 
+Run the codes `Main_calculate_resolution.m` to calculate the resolution of the tomography reconstruction without support constraint.
 
 
 
