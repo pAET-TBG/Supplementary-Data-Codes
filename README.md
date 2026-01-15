@@ -108,25 +108,25 @@ Run the 6 codes inside the folder `Main_calculate_antimeron_lower.m`,  `Main_cal
 
 ### k. Twisted Bilayer Graphene Multislice Simulation with 64 Frozon Phonons
 
-Folder: [Twisted bilayer graphene multislice simulation with 64 frozon phonons](./k_TBG_64_frozen_phonon_simulation)
+Folder: [Twisted_bilayer_graphene_multislice_simulation_with_64_frozon_phonons](./k_TBG_64_frozen_phonon_simulation)
 
 Run the codes inside the folder `Main_1_AET_RESIRE_Probe.m`,  `Main_2_polynomial_tracing_iteration.m`,  `Main_3_Match_Atom_With_Position.m`, and  `Main_4_Atom_Position_refinement.m` to obatin the traced atom positions for the twisted bilayer graphene multislice simulation with 64 frozon phonons.
 
 ### l. Twisted Bilayer Graphene Multislice Simulation with 32 Frozon Phonons
 
-Folder: [Twisted bilayer graphene multislice simulation with 32 frozon phonons](./l_TBG_32_frozen_phonon_simulation)
+Folder: [Twisted_bilayer_graphene_multislice_simulation_with_32_frozon_phonons](./l_TBG_32_frozen_phonon_simulation)
 
 Run the codes inside the folder `Main_1_AET_RESIRE_Probe.m`,  `Main_2_polynomial_tracing_iteration.m`,  `Main_3_Match_Atom_With_Position.m`, and  `Main_4_Atom_Position_refinement.m` to obatin the traced atom positions for the twisted bilayer graphene multislice simulation with 32 frozon phonons.
 
 ### m. Nitrogen Vacancy Center Multislice Simulation
 
-Folder: [Nitrogen vacancy center simulation](./m_Nitrogen_vacancy_center_simulation)
+Folder: [Nitrogen_vacancy_center_simulation](./m_Nitrogen_vacancy_center_simulation)
 
 Run the codes inside the folder `Main_1_RESIRE_Multislice_With_Probe.m`,  `Main_1_RESIRE_Multislice_Without_Probe.m`,  `Main_1_RESIRE_Singleslice_With_Probe.m`, `Main_1_RESIRE_Singleslice_Without_Probe.m`, `Main_2_polynomial_tracing_iteration_Multislice_With_Probe.m`, `Main_2_polynomial_tracing_iteration_Multislice_Without_Probe.m`, `Main_2_polynomial_tracing_iteration_Singleslice_With_Probe.m`, `Main_4_Match_Atom_With_Position_Multislice.m`, `Main_1_RESIRE_Singleslice_With_Probe.m`, `Main_4_Match_Atom_With_Position_Multislice_Without_Probe.m`, `Main_5_Atom_Position_refinement_Multislice_With_Probe.m`, and  `Main_5_Atom_Position_refinement_Multislice_Without_Probe.m` to obatin the traced atom positions for the nitrogen vacancy center simulation.
 
 ### n. Amorphous Carbon Multislice Simulation
 
-Folder: [Amorphous carbon simulation](./n_Amorphous_carbon_simulation)
+Folder: [Amorphous_carbon_simulation](./n_Amorphous_carbon_simulation)
 
 Run the codes inside the folder `Main_1_AET_RESIRE_Probe.m`,  `Main_2_polynomial_tracing_iteration.m`,  `Main_3_Match_Atom_With_Position.m`, and  `Main_4_Atom_Position_refinement.m` to obatin the traced atom positions for the amorphous carbon multislice simulation.
 
@@ -138,7 +138,7 @@ Run the codes `Main_calculate_resolution.m` to calculate the resolution of the t
 
 ### p. 2D Tracing Refinement
 
-Folder: [2D tracing](./p_2D_Tracing)
+Folder: [2D_tracing](./p_2D_Tracing)
 
 Run the codes inside the folder `Main_1_AET_RESIRE.m`,  `Main_2_2D_Tracing_Lower_Layer.m`,  `Main_2_2D_Tracing_Upper_Layer.m`， `Main_3_match_atom_with_projection.m`,  and `Main_4_atom_position_refinement.m` to obatin the traced atom positions for the experiment twisted bilayer graphene from 2D Tracing. Run the codes inside the folder `Main_6_match_atom.m`,  and `Main_7_calculate_displacement.m` to obtain the corresponding displacement between the experimental atomic model and the flat atomic model.
 
