@@ -136,5 +136,11 @@ Folder: [Calculate_resolution](./o_Calculate_resolution)
 
 Run the codes `Main_calculate_resolution.m` to calculate the resolution of the tomography reconstruction without support constraint.
 
+### p. 2D Tracing Refinement
+
+Folder: [2D tracing](./p_2D_Tracing)
+
+Run the codes inside the folder `Main_1_AET_RESIRE.m`,  `Main_2_2D_Tracing_Lower_Layer.m`,  `Main_2_2D_Tracing_Upper_Layer.m`， `Main_3_match_atom_with_projection.m`,  and `Main_4_atom_position_refinement.m` to obatin the traced atom positions for the experiment twisted bilayer graphene from 2D Tracing. Run the codes inside the folder `Main_6_match_atom.m`,  and `Main_7_calculate_displacement.m` to obtain the corresponding displacement between the experimental atomic model and the flat atomic model.
+
 
 
