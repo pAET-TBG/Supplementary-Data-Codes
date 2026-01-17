@@ -122,7 +122,7 @@ Run the codes inside the folder `Main_1_AET_RESIRE_Probe.m`, `Main_2_polynomial_
 
 Folder: [Nitrogen_vacancy_center_simulation](./m_Nitrogen_vacancy_center_simulation)
 
-Run the codes inside the folder `Main_1_RESIRE_Multislice_With_Probe.m`, `Main_1_RESIRE_Multislice_Without_Probe.m`, `Main_1_RESIRE_Singleslice_With_Probe.m`, `Main_1_RESIRE_Singleslice_Without_Probe.m`, `Main_2_polynomial_tracing_iteration_Multislice_With_Probe.m`, `Main_2_polynomial_tracing_iteration_Multislice_Without_Probe.m`, `Main_2_polynomial_tracing_iteration_Singleslice_With_Probe.m`, `Main_4_Match_Atom_With_Position_Multislice.m`, `Main_1_RESIRE_Singleslice_With_Probe.m`, `Main_4_Match_Atom_With_Position_Multislice_Without_Probe.m`, `Main_5_Atom_Position_refinement_Multislice_With_Probe.m`, and  `Main_5_Atom_Position_refinement_Multislice_Without_Probe.m` to obatin the traced atom positions for the nitrogen vacancy center simulation.
+Run the codes inside the folder `Main_1_RESIRE_Multislice_With_Probe.m`, `Main_1_RESIRE_Multislice_Without_Probe.m`, `Main_1_RESIRE_Singleslice_With_Probe.m`, `Main_1_RESIRE_Singleslice_Without_Probe.m`, `Main_2_polynomial_tracing_iteration_Multislice_With_Probe.m`, `Main_2_polynomial_tracing_iteration_Multislice_Without_Probe.m`, `Main_2_polynomial_tracing_iteration_Singleslice_With_Probe.m`, `Main_4_Match_Atom_With_Position_Multislice.m`, `Main_1_RESIRE_Singleslice_With_Probe.m`, `Main_4_Match_Atom_With_Position_Multislice_Without_Probe.m`, `Main_5_Atom_Position_refinement_Multislice_With_Probe.m`, and `Main_5_Atom_Position_refinement_Multislice_Without_Probe.m` to obatin the traced atom positions for the nitrogen vacancy center simulation.
 
 ### n. Amorphous Carbon Multislice Simulation
 
@@ -141,6 +141,12 @@ Run the codes `Main_calculate_resolution.m` to calculate the resolution of the t
 Folder: [2D_tracing](./p_2D_Tracing)
 
 Run the codes inside the folder `Main_1_AET_RESIRE.m`, `Main_2_2D_Tracing_Lower_Layer.m`, `Main_2_2D_Tracing_Upper_Layer.m`, `Main_3_match_atom_with_projection.m`, and `Main_4_atom_position_refinement.m` to obatin the traced atom positions for the experiment twisted bilayer graphene from 2D Tracing. Run the codes inside the folder `Main_6_match_atom.m`, and `Main_7_calculate_displacement.m` to obtain the corresponding displacement between the experimental atomic model and the flat atomic model.
+
+### p. Odd And Even Dataset Comparison 
+
+Folder: [Experiment_odd_even_dataset](./q_Experiment_odd_even_dataset)
+
+Run the codes inside the Even_dataset and Odd_dataset folders `Main_1_AET_RESIRE_probe.m`, `Main_2_polynomial_tracing_iteration.m`, `Main_3_match_atom_with_projection.m`, `Main_4_atom_position_refinement.m`, `Main_5_match_atom.m`, and `Main_5_Atom_Position_refinement_Multislice_Without_Probe.m` to obatin the traced atom positions for odd and even experiment twisted bilayer graphene dataset.
 
 
 
