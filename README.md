@@ -146,7 +146,7 @@ Run the codes inside the folder `Main_1_AET_RESIRE.m`, `Main_2_2D_Tracing_Lower_
 
 Folder: [Experiment_odd_even_dataset](./q_Experiment_odd_even_dataset)
 
-Run the codes inside the Even_dataset and Odd_dataset folders `Main_1_AET_RESIRE_probe.m`, `Main_2_polynomial_tracing_iteration.m`, `Main_3_match_atom_with_projection.m`, `Main_4_atom_position_refinement.m`, `Main_5_match_atom.m`, and `Main_5_Atom_Position_refinement_Multislice_Without_Probe.m` to obatin the traced atom positions for odd and even experiment twisted bilayer graphene dataset.
+Run the codes inside the Even_dataset and Odd_dataset folders `Main_1_AET_RESIRE_probe.m`, `Main_2_polynomial_tracing_iteration.m`, `Main_3_match_atom_with_projection.m`, `Main_4_atom_position_refinement.m`, `Main_5_match_atom.m`, and `Main_5_Atom_Position_refinement_Multislice_Without_Probe.m` to obatin the traced atom positions for odd and even experiment twisted bilayer graphene dataset and the corresponding displacement between the experimental atomic model and the flat atomic model.
 
 
 
