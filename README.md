@@ -1,6 +1,6 @@
 # Supplementary Data Codes
 
-# **Three-dimensional imaging of individual carbon atoms**
+# **Three-dimensional determination of individual carbon atoms**
 
 Na Yeon Kim<sup>1*</sup>, Hanfeng Zhong<sup>1,2*</sup>, Jianhua Zhang<sup>3*</sup>, Colum M. O’Leary<sup>1*</sup>, Yuxuan Liao<sup>1</sup>, Ji Zou<sup>4</sup>, Haozhi Sha<sup>1</sup>, Minh Pham<sup>1</sup>, Weiyi Li<sup>1</sup>, Yakun Yuan<sup>1</sup>, Ji-Hoon Park<sup>5</sup>, Dennis Kim<sup>6</sup>, Huaidong Jiang<sup>3</sup>, Jing Kong<sup>5</sup>, Miaofang Chi<sup>7</sup>, Jianwei Miao<sup>1†</sup>,   
 
