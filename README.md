@@ -56,7 +56,7 @@ This folder contains 13 experimental projections after ptychography reconstructi
 
 Folder: [EPIE_package](./b_EPIE_package)
 
-Run the ptychography reconstruction code `Main_EPIE.m` to obtain the phase retrieval projections of the twisted bilayer graphene sample.
+Run the ptychography reconstruction code `Main_EPIE.m` to obtain the phase retrieval projections of the twisted bilayer graphene sample. Run the code inside Main_prepare_tomography to obtain the projections and angles for tomography
 
 ### c. The Probe REal Space Iterative REconstruction (RESIRE) Package
 
