@@ -1,4 +1,4 @@
-function [Projs,param,errR] = gradient_B_2type_difB(para, xdata, ydata)
+function [Projs,param,errR] = gradient_B_2type_difB_YXZ(para, xdata, ydata)
 errR=[];
 fprintf('\nHB gradient algorithm\n');
 
@@ -49,9 +49,9 @@ Y_rot = zeros(num_pj,num_atom,dtype);
 Z_rot = zeros(num_pj,num_atom,dtype);
 
 for i=1:num_pj
-  R1 = MatrixQuaternionRot([0 0 1],angles(i,1));  
-  R2 = MatrixQuaternionRot([0 1 0],angles(i,2));
-  R3 = MatrixQuaternionRot([1 0 0],angles(i,3));  
+  R1 = MatrixQuaternionRot([0 1 0],angles(i,1));  
+  R2 = MatrixQuaternionRot([1 0 0],angles(i,2));
+  R3 = MatrixQuaternionRot([0 0 1],angles(i,3));  
   R   = (R1*R2*R3)';
       
   rotCoords = R*model;

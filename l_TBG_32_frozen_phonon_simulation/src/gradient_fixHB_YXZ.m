@@ -1,4 +1,4 @@
-function [Projs,params,errR,model_arr] = gradient_fixHB_XYZ(para, xdata, ydata)
+function [Projs,params,errR,model_arr] = gradient_fixHB_YXZ(para, xdata, ydata)
 fprintf('\nHB gradient algorithm\n');
 errR=[];
 model_arr=[];
@@ -120,9 +120,9 @@ for iter=1:iterations
     %tic
     for i=1:num_pj
         
-        RM1 = MatrixQuaternionRot([0 0 1],angles(i,1));
-        RM2 = MatrixQuaternionRot([0 1 0],angles(i,2));
-        RM3 = MatrixQuaternionRot([1 0 0],angles(i,3));
+        RM1 = MatrixQuaternionRot([0 1 0],angles(i,1));
+        RM2 = MatrixQuaternionRot([1 0 0],angles(i,2));
+        RM3 = MatrixQuaternionRot([0 0 1],angles(i,3));
         R   = RM1*RM2*RM3;
         model_rot = R'*[X(:)';Y(:)';Z(:)'];
         

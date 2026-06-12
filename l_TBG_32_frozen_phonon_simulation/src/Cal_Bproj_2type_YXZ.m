@@ -1,5 +1,4 @@
-function [Projs,param] = Cal_Bproj_2type2(para, xdata)
-para=abs(para);
+function [Projs,param] = Cal_Bproj_2type_YXZ(para, xdata, ydata)
 
 Z_arr	   = xdata.Z_arr;
 Res        = xdata.Res;
@@ -11,7 +10,6 @@ angles     = xdata.angles;
 atom       = xdata.atoms;
 num_atom   = numel(atom);
 atom_type_num = numel(unique(atom));
-ydata      = xdata.projections;
 
 [N1,N2,~] = size(ydata);
 num_pj=size(angles,1);
@@ -22,28 +20,23 @@ fixedfa = reshape( make_fixedfa_man([N1,N2], Res, Z_arr), [N1,N2] );
 % max_fa = max(abs(fixedfa(:)));
 model = model/Res;
 
-% max(model(2,:))
-% 
-% return
 dtype = 'single';
 X_rot = zeros(num_pj,num_atom,dtype);
 Y_rot = zeros(num_pj,num_atom,dtype);
 Z_rot = zeros(num_pj,num_atom,dtype);
 
 for i=1:num_pj
-    angles
-  R1 = MatrixQuaternionRot([0 0 1],angles(i,1));  
-  R2 = MatrixQuaternionRot([0 1 0],angles(i,2));
-  R3 = MatrixQuaternionRot([1 0 0],angles(i,3));  
+  R1 = MatrixQuaternionRot([0 1 0],angles(i,1));  
+  R2 = MatrixQuaternionRot([1 0 0],angles(i,2));
+  R3 = MatrixQuaternionRot([0 0 1],angles(i,3));  
   R   = (R1*R2*R3)';
       
   rotCoords = R*model;
   X_rot(i,:) = rotCoords(1,:);
   Y_rot(i,:) = rotCoords(2,:);
   Z_rot(i,:) = rotCoords(3,:);
-
-  max(Y_rot)
-  return
+  max(Y_rot);
+ % return
 end
 
 [X_crop,Y_crop] = ndgrid( -halfWidth:halfWidth, -halfWidth:halfWidth);      
@@ -51,8 +44,8 @@ Z_crop = -halfWidth:halfWidth;
 
 
 %Projs   = zeros(N1,N1,num_pj);
-para = reshape(para,[2 atom_type_num]);
 h       = para(1,:)/para(1,1);
+%h       = para(1,:);
 b       = (pi*Res)^2 ./ para(2,:);
 
 num_atom_type = zeros(atom_type_num,1);
@@ -93,7 +86,8 @@ for i=1:num_pj
         for k=1:num_atom_type(j)
             indx = X_round(k) + (-halfWidth:halfWidth) + round((N1+1)/2);
             indy = Y_round(k) + (-halfWidth:halfWidth) + round((N2+1)/2);
-
+%max(indy)
+       %     return
             Grad(indx,indy,i,j)   = Grad(indx,indy,i,j)   + pj_j_h(:,:,k);
 %             grad_h(indx,indy,i,j) = grad_h(indx,indy,i,j) + pj_j(:,:,k);
 %             grad_b(indx,indy,i,j) = grad_b(indx,indy,i,j) + bj_j(:,:,k);

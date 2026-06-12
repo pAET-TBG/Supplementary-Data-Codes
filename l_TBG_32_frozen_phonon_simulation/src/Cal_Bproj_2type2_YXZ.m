@@ -1,4 +1,4 @@
-function [Projs,param] = Cal_Bproj_2type2(para, xdata)
+function [Projs,param] = Cal_Bproj_2type2_YXZ(para, xdata)
 para=abs(para);
 
 Z_arr	   = xdata.Z_arr;
@@ -31,10 +31,10 @@ Y_rot = zeros(num_pj,num_atom,dtype);
 Z_rot = zeros(num_pj,num_atom,dtype);
 
 for i=1:num_pj
-    angles
-  R1 = MatrixQuaternionRot([0 0 1],angles(i,1));  
-  R2 = MatrixQuaternionRot([0 1 0],angles(i,2));
-  R3 = MatrixQuaternionRot([1 0 0],angles(i,3));  
+ %   angles
+  R1 = MatrixQuaternionRot([0 1 0],angles(i,1));  
+  R2 = MatrixQuaternionRot([1 0 0],angles(i,2));
+  R3 = MatrixQuaternionRot([0 0 1],angles(i,3));  
   R   = (R1*R2*R3)';
       
   rotCoords = R*model;
@@ -42,8 +42,8 @@ for i=1:num_pj
   Y_rot(i,:) = rotCoords(2,:);
   Z_rot(i,:) = rotCoords(3,:);
 
-  max(Y_rot)
-  return
+  %max(Y_rot)
+  %return
 end
 
 [X_crop,Y_crop] = ndgrid( -halfWidth:halfWidth, -halfWidth:halfWidth);      
