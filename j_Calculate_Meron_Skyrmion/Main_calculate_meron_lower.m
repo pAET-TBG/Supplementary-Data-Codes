@@ -4,7 +4,7 @@ clear;clc;
 addpath([pwd,'/src/'])
 addpath([pwd,'/input_data/'])
 addpath([pwd,'/output_data/'])
-atom_info = importdata('atom_model_lower_layer_displacement_1_Convolution.mat');
+atom_info = importdata('atom_model_lower_layer_displacement_1_convolution.mat');
 atom_sim_pos  = atom_info.atomdown_sim;
 atom_displace = atom_info.displacementDOWN;
 atom_info = importdata('atom_model_sim_exp_matched.mat');
@@ -175,7 +175,7 @@ center = [-8.3267,-3.5510e+03];
 % scan all possibility 
 a_array = 1050:50:1150;
 b_array = 2150:50:2250;
-phi_array = 177:0.1:179;
+phi_array = 177:0.1:178;
 % Number of points
 numPoints = 1000;
 % Angle from 0 to 2*pi

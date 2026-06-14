@@ -4,7 +4,7 @@ clear;clc;
 addpath([pwd,'/src/'])
 addpath([pwd,'/input_data/'])
 addpath([pwd,'/output_data/'])
-atom_info = importdata('atom_model_upper_layer_displacement_1_Convolution.mat');
+atom_info = importdata('atom_model_upper_layer_displacement_1_convolution.mat');
 atom_sim_pos  = atom_info.atomup_sim;
 atom_displace = atom_info.displacementUP;
 atom_info = importdata('atom_model_sim_exp_matched.mat');
@@ -185,9 +185,9 @@ clear yspan
 % Center of the circle
 center = [1865.31365179787, 1584.61581177161];
 % scan all possibility 
-a_array = 850:50:950;
+a_array = 800:50:900;
 b_array = 900:50:1000;
-phi_array = 0:0.1:1;
+phi_array = -3:0.1:-2;
 % Number of points
 numPoints = 1000;
 % Angle from 0 to 2*pi
