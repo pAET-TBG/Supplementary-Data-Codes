@@ -284,4 +284,4 @@ quiver3(atomdown_sim(1,:), atomdown_sim(2,:), atomdown_sim(3,:), displacementDOW
 axis equal;
 view(90,30);
 hold off;
-save([pwd,'/output_data/atom_model_lower_layer_displacement_1_Convolution.mat'],'atomdown_sim','displacementDOWN')
+save([pwd,'/output_data/atom_model_lower_layer_displacement_1_convolution.mat'],'atomdown_sim','displacementDOWN')
