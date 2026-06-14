@@ -253,5 +253,34 @@ for tempi=1:size(atom_manual,2)
 end
 save([pwd,'/output_data/atom_tracing_manual_label.mat'],'manualLabel');
 
+%% Find the O vacancy
+clear;clc;  
+load('atom_tracing_model_total.mat');clear atom
+load('atom_tracing_manual_model.mat')
+load('atom_tracing_manual_label.mat')
+[l,w,h]=size(FinalVol(11:size(FinalVol,1)-10,11:size(FinalVol,2)-10,11:size(FinalVol,3)-10));
+CentralPixels_Origin=([l,w,h]+1)/2;
+Res = 0.19/2;
+atom  = atom./Res;
+atom  = atom + CentralPixels_Origin';
+atom(1,:) = atom(1,:)+10;
+atom(2,:) = atom(2,:)+10;
+atom(3,:) = atom(3,:)+10;
+% crop the local k-mean region
+index = find(atom(3,:) > 40 & atom(1,:) > 350 & atom(1,:) < 480 & atom(2,:) > 400 & atom(2,:) < 545);
+% k-mean vacancy
+classify_info1 = struct('Num_species', 2,  'halfSize',  3,  'plothalfSize',  3, 'O_Ratio', 1, 'SPHyn',  1,  'PLOT_YN',  1,  'separate_part',  100, 'L_forAver', 1, 'lnorm', 2);
+[~, atomtype_C,~] = initial_classification1_1types_fixnonatom(FinalVol, atom(:,index), classify_info1,0);
+% exclude the vacancy
+clear atom label
+load('atom_tracing_manual_model.mat')
+label_vacancy = index(atomtype_C==1);
+atom(:,label_vacancy) = [];
+label(label_vacancy) = [];
+manualLabel(label_vacancy) = [];
+save([pwd,'/output_data/atom_tracing_manual_label_vacancy.mat'],'manualLabel');
+save([pwd,'/output_data/atom_tracing_manual_model_vacancy.mat'],'atom','label');
+
+
 
 

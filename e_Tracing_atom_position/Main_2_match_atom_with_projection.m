@@ -6,7 +6,7 @@ addpath([pwd,'/input_data/'])
 addpath([pwd,'/output_data/'])
 projs     = importdata('Projections.mat');
 angles    = importdata('Angles.mat');
-atom_info = importdata('atom_tracing_manual_model.mat');
+atom_info = importdata('atom_tracing_manual_model_vacancy.mat');
 atompos   = atom_info.atom;
 label = atom_info.label;
 
