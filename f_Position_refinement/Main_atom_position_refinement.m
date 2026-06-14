@@ -99,7 +99,7 @@ calculate_B_factor(para0, xdata, model, projections);
 clear;clc
 atom        = importdata('atom_tracing_model_refinement_total.mat');
 label       = importdata('label_Refinement.mat');
-manualLabel = importdata('atom_tracing_manual_label.mat');
+manualLabel = importdata('atom_tracing_manual_label_vacancy.mat');
 
 %% the parameter to judge the quality of each traced atom
 Res = 0.19/2;                                                              % resolution
