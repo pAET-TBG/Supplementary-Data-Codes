@@ -51,6 +51,8 @@ index = in | on;
 
 atomPos = atom_sim(:,index==1);
 label   = label_sim(index==1);
+atomPos(:,label==3) = [];
+label(:,label==3) = [];
 
 %% calculate the scan position
 halfColnum = 0;                                                            % the half number of the column scan position

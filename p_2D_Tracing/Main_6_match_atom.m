@@ -22,12 +22,14 @@ atom_sim(3,:) = atom_sim(3,:)+40;
 %% check the refinement coordination
 load('atom_tracing_model_refinement.mat')
 atom_ref = atom;
+atom_ref(1,:) = atom_ref(1,:)+1.0419;
+atom_ref(2,:) = atom_ref(2,:)-1.4046;
 load('atom_tracing_model_refinement_total_2D_Tracing.mat')
 model = calculate_model_difference(atom_ref,model,1);
 
 atom = zeros(size(atom_ref));
 for i = 1:size(atom_ref,2)
-    dif=(model-atom_ref(:,i));                                        % calculate all difference from the first result with i'th position in the second result (angstrom)
+    dif=(model-atom_ref(:,i));                                             % calculate all difference from the first result with i'th position in the second result (angstrom)
     dis=sqrt(sum(dif.^2,1));   
     [dis,ind]=min(dis);                                                    % obatin the minimum distance and corresponding index
     if dis <= 10
