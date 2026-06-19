@@ -6,8 +6,8 @@ addpath([pwd, '/input_data/'])
 addpath([pwd, '/src/'])
 res = 0.19/2;
 
-atompos_1  = importdata('atom_tracing_model_refinement_Even.mat');atompos_1 = atompos_1.atom; 
-atompos_2  = importdata('atom_tracing_model_refinement_Odd.mat');atompos_2 = atompos_2.atom; 
+atompos_1  = importdata('atom_tracing_model_refinement_Even_Tot.mat');atompos_1 = atompos_1.atom; 
+atompos_2  = importdata('atom_tracing_model_refinement_Odd_Tot.mat');atompos_2 = atompos_2.atom; 
 
 
 %% subpixel alignment
