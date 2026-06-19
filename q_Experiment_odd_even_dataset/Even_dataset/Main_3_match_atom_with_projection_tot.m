@@ -4,7 +4,7 @@ clc;
 addpath([pwd,'/src/'])
 addpath([pwd,'/input_data/'])
 addpath([pwd,'/output_data/'])
-projs     = importdata('Projections_Even.mat');
+projs     = importdata('Projections.mat');
 angles    = importdata('Angles.mat');
 atom_info = importdata('atom_tracing_manual_Even_model.mat');
 atompos   = atom_info.atom;atompos(:,7805) = [];
@@ -79,8 +79,8 @@ for tempi = 1:size(projs,3)
 end
 
 atom = atomPos.*res; 
-save([pwd,'/output_data/atom_Refinement_Even.mat'],'atom')
-save([pwd,'/output_data/label_Refinement_Even.mat'],'label')
-save([pwd,'/output_data/Projs_Refinement_Even.mat'],'cropProjs')
-save([pwd,'/output_data/angles_Refinement_Even.mat'],'angles')
+save([pwd,'/output_data/atom_Refinement_Tot.mat'],'atom')
+save([pwd,'/output_data/label_Refinement_Tot.mat'],'label')
+save([pwd,'/output_data/Projs_Refinement_Tot.mat'],'cropProjs')
+save([pwd,'/output_data/angles_Refinement_Tot.mat'],'angles')
 
