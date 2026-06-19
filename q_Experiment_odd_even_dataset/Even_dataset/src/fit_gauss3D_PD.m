@@ -1,4 +1,4 @@
-%% 子函数，用于高斯拟合原子坐标
+
 function [x, resnorm,residual] = fit_gauss3D_PD(init_guess, xdata, ydata, varargin)
 
 %fit_gauss3D_PD(init_guess, xdata, ydata, fixed, lowerbound,upperboud)
@@ -65,13 +65,13 @@ x = init_guess_all;
     end
 
 end
-%% 上一个函数的两个子函数
+
 function y = calc_gauss3D_PD(x, xdata)
 %Calulate 3D gaussian f(v) = exp(-v'*A*v)
 %based on code by R.Xu, UCLA, 2014
 
     [L,M,N] = size(xdata.x); Num = L*M*N;
-    % 这里和原来R.Xu, UCLA, 2014的版本不同，结构体xdata第一个子单元的名称为y，与matlab的绘图习惯一直，而原来为x
+
     v = [reshape(xdata.y - x(3),1,Num); reshape(xdata.x - x(4),1,Num); reshape(xdata.z - x(5),1,Num)];
 
     vector1 = [1 0 0];
