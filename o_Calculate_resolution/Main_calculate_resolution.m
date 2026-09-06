@@ -71,10 +71,11 @@ load('tBLG_reconstruction_volume_without_support.mat')
 rec = rec(1+200:end-200,1+200:end-200,:);
 rec = rec(270:1364,65:1514,:);
 rec_pad = My_paddzero(rec,size(rec)+[0 0 8]);
-rec_large = My_paddzero(rec,size(rec)+[0 0 10]);
+rec_large = My_paddzero(rec,size(rec)+[10 10 38]);
 
 %% Average the good atom
 atom_tot = zeros(size(atom_fit)+[0 0 0]);
+atom_tot_large  = zeros(23,23,67);
 for tempi = 1:size(max_pos,2)
     tic
     comp_corr = 0;
@@ -113,6 +114,7 @@ for tempi = 1:size(max_pos,2)
     
     % subpixel alignment
     temp_vol = rec_pad(max_pos(1,tempi)-6+dy:max_pos(1,tempi)+6+dy,max_pos(2,tempi)-6+dx:max_pos(2,tempi)+6+dx,max_pos(3,tempi)-18+dz+4:max_pos(3,tempi)+18+dz+4);
+    temp_vol_large = rec_large(max_pos(1,tempi)+5-6-5+dy:max_pos(1,tempi)+5+6+5+dy,max_pos(2,tempi)+5-6-5+dx:max_pos(2,tempi)+5+6+5+dx,max_pos(3,tempi)+15-18-15+dz+4:max_pos(3,tempi)+15+18+15+dz+4);
     corr_arr = zeros([21,21,21]);
     
     parfor tempy = 1:21
@@ -133,35 +135,47 @@ for tempi = 1:size(max_pos,2)
     clear linear_idx
     atom_temp = abs(My_FourierShift_3D(temp_vol,(dy-11)/10,(dx-11)/10,(dz-11)/10));
     atom_tot = atom_tot+abs(atom_temp(7-5:7+5,7-5:7+5,19-17:19+17));
+    atom_tot_large = atom_tot_large + abs(My_FourierShift_3D(temp_vol_large,(dy-11)/10,(dx-11)/10,(dz-11)/10));
     toc
 end
 atom_tot = atom_tot./count;
+atom_tot_large = atom_tot_large./size(max_pos,2);
 
 %% Calculate the resolution
 % normalized the averaged atom
-atom_tot = atom_tot - min(atom_tot(:));
-atom_tot = atom_tot ./max(atom_tot(:));
-[X,Y,Z] = meshgrid(-5:5,-5:5,-17:17); 
-xdata.x = X;
-xdata.y = Y;
-xdata.z = Z;
-ydata   = double(atom_tot);
-fixed      = [0 0 0  0  0  0   0   0   0   0   0  ];
-lb         = [0 0 -5 -5 -5 0   0   0   -pi -pi -pi];
-ub         = [2 2 5  5  5  1e3 1e3 1e3 pi  pi  pi ];
-init_guess = [0 0 0  0  0  35  60 400  0   0   0  ];
+atom_tot_large = atom_tot_large(:,:,2:end-1);
+atom_tot_large = atom_tot_large - min(atom_tot_large(:));
+atom_tot_large = atom_tot_large ./max(atom_tot_large(:));
+% for y-direction
+ydata = squeeze(squeeze(atom_tot_large(:,12,22)))';
+xdata = 1:length(ydata);
+init_guess = [ min(ydata), max(ydata)-min(ydata), xdata(ydata == max(ydata)), 30];
 for iter = 1:5
-    [x_fit, resnorm,residual] = fit_gauss3D_PD(init_guess, xdata, ydata, fixed, lb,ub);
-    init_guess = x_fit;
+    [x_fit_1D_y, ~, ~] = fit_gauss1D_PD(init_guess, xdata, ydata);
+    init_guess = x_fit_1D_y;
 end
-clear temp
-atom_fit = calc_gauss3D_PD(x_fit,xdata);
+% for x-direction
+ydata = squeeze(atom_tot_large(12,:,22));
+xdata = 1:length(ydata);
+init_guess = [ min(ydata), max(ydata)-min(ydata), xdata(ydata == max(ydata)), 30];
+for iter = 1:5
+    [x_fit_1D_x, ~, ~] = fit_gauss1D_PD(init_guess, xdata, ydata);
+    init_guess = x_fit_1D_x;
+end
+% for z-direction
+ydata = squeeze(atom_tot_large(12,12,:))';
+xdata = 1:length(ydata);
+init_guess = [ min(ydata), max(ydata)-min(ydata), xdata(ydata == max(ydata)), 30];
+for iter = 1:5
+    [x_fit_1D_z, ~, ~] = fit_gauss1D_PD(init_guess, xdata, ydata);
+    init_guess = x_fit_1D_z;
+end
 
-fprintf(['y-direction sigma ',num2str(sqrt(x_fit(6)/2)*(0.19/2)),' pm \n'])
-fprintf(['x-direction sigma ',num2str(sqrt(x_fit(7)/2)*(0.19/2)),' pm \n'])
-fprintf(['z-direction sigma ',num2str(sqrt(x_fit(8)/2)*(0.19/2)),' pm \n'])
+fprintf(['y-direction sigma ',num2str(sqrt(x_fit_1D_y(4)/2)*(0.19/2)),' A \n'])
+fprintf(['x-direction sigma ',num2str(sqrt(x_fit_1D_x(4)/2)*(0.19/2)),' A \n'])
+fprintf(['z-direction sigma ',num2str(sqrt(x_fit_1D_z(4)/2)*(0.19/2)),' A \n'])
 
-fprintf(['y-direction resolution ',num2str(sqrt(x_fit(6)/2)*(0.19/2)*2*sqrt(2*log(2))),' pm \n'])
-fprintf(['x-direction resolution ',num2str(sqrt(x_fit(7)/2)*(0.19/2)*2*sqrt(2*log(2))),' pm \n'])
-fprintf(['z-direction resolution ',num2str(sqrt(x_fit(8)/2)*(0.19/2)*2*sqrt(2*log(2))),' pm \n'])
+fprintf(['y-direction resolution ',num2str(sqrt(x_fit_1D_y(4)/2)*(0.19/2)*2*sqrt(2*log(2))),' A \n'])
+fprintf(['x-direction resolution ',num2str(sqrt(x_fit_1D_x(4)/2)*(0.19/2)*2*sqrt(2*log(2))),' A \n'])
+fprintf(['z-direction resolution ',num2str(sqrt(x_fit_1D_z(4)/2)*(0.19/2)*2*sqrt(2*log(2))),' A \n'])
 
