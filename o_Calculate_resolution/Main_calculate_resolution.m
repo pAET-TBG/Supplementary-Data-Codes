@@ -147,7 +147,7 @@ atom_tot_large = atom_tot_large(:,:,2:end-1);
 atom_tot_large = atom_tot_large - min(atom_tot_large(:));
 atom_tot_large = atom_tot_large ./max(atom_tot_large(:));
 % for y-direction
-ydata = squeeze(squeeze(atom_tot_large(:,12,22)))';
+ydata = squeeze(squeeze(atom_tot_large(:,12,33)))';
 xdata = 1:length(ydata);
 init_guess = [ min(ydata), max(ydata)-min(ydata), xdata(ydata == max(ydata)), 30];
 for iter = 1:5
@@ -155,7 +155,7 @@ for iter = 1:5
     init_guess = x_fit_1D_y;
 end
 % for x-direction
-ydata = squeeze(atom_tot_large(12,:,22));
+ydata = squeeze(atom_tot_large(12,:,33));
 xdata = 1:length(ydata);
 init_guess = [ min(ydata), max(ydata)-min(ydata), xdata(ydata == max(ydata)), 30];
 for iter = 1:5
