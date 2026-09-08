@@ -7,7 +7,7 @@ x0(1,:)=x0(1,:)/x0(1,1);                                                   % nor
 xdata.model = model;                                                       % the positions of each atoms perpared for optimization
 xdata.model_ori = model;                                                   % the original position of each atoms will not be changed during this iteration
 xdata.projections=projections;
-[para0, ~,~] = lsqcurvefit(@Cal_Bproj_2type2, x0, xdata, projections, [0 0; 0 0], [1 1 ;20 20], opt);
-fprintf('H1 = %.03f, H2 = %.03f\n B1 = %.03f, B2 = %.03f\n', para0(1),para0(3),para0(2),para0(4));
+[para0, ~,~] = lsqcurvefit(@Cal_Bproj_2type2, x0, xdata, projections, [0; 0], [1 ;20], opt);
+fprintf('H = %.03f\n B = %.03f\n', para0(1),para0(2));
 
 end
